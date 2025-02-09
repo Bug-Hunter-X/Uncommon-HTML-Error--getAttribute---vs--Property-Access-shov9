@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Error Solution</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv" data-custom="test">
+    <p>This paragraph is inside a div.</p>
+  </div>
+  <script>
+    // Accessing existing attribute: this works fine.
+    let x = document.getElementById("myDiv").getAttribute("data-custom");
+    console.log("Existing attribute:", x); // Outputs "test"
+    
+    // Accessing a non-existent attribute, returns null.  This is fine if handled.
+    let y = document.getElementById("myDiv").getAttribute("nonExistentAttribute");
+    console.log("Non-existent attribute:", y); //Outputs null
+    
+    // Safer way to handle non-existent attributes: check for null before using.
+    if(y != null){
+        //Use the attribute value here
+    }else{
+        // Handle the case where attribute is missing
+    }
+    
+    //Attempting to directly access a non-existent property throws an error. Avoid this! 
+    //document.getElementById("myDiv").nonExistentProperty
+  </script>
+</body>
+</html>
